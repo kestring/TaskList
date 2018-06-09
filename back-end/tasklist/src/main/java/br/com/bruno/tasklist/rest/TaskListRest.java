@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,8 +37,8 @@ public class TaskListRest {
         return taskRepository.findAll();
     }
 	
-	@RequestMapping("/excluir")
-    public ResponseEntity<Void> excluir(@PathVariable Long id) {
+    @RequestMapping("/remove/{id}")
+    public ResponseEntity<Void> remover(@PathVariable Long id) {
 		Optional<Task> optTask = taskRepository.findById(id);
         
 		if(!optTask.isPresent()) {
@@ -74,7 +75,7 @@ public class TaskListRest {
 	public ResponseEntity<Task> buscarPorId(@PathVariable Long id) {
 		Optional<Task> optTask = taskRepository.findById(id);
         
-        if(optTask.isPresent()) {
+        if(!optTask.isPresent()) {
         	return ResponseEntity.notFound().build();
         }else {
         	return ResponseEntity.ok(optTask.get());
