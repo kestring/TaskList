@@ -1,9 +1,51 @@
 <section>
-  <form action="inserir">
-    <!-- componentes da task a serem adicionados -->
-  </form>
+  <div clss="box-body">
 
-  <app-lista-task></app-lista-task>
+  </div>
+  <div class="row">
+    <form class="col s12">
+      private String titulo; private String status; private String descricao; private Date dataCriacao; private Date dataEdicao;
+      private Date dataRemocao; private Date dataConclusao;
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="titulo" type="text" class="validate">
+          <label for="titulo">Título</label>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="input-field col s12">
+        <input id="descricao" type="text" class="validate">
+        <label for="descricao">Descrição</label>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+          <label for="disabled">Disabled</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          This is an inline input field:
+          <div class="input-field inline">
+            <input id="email_inline" type="email" class="validate">
+            <label for="email_inline">Email</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
 </section>
-
-

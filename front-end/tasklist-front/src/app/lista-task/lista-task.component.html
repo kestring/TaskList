@@ -1,4 +1,28 @@
-<p> Teste 1234</p>
+<section>
 <!-- <p **ngFor="let task of taskList">
   lista-task works!
 </p> -->
+<!-- colocar o botão na direita -->
+<table class="highlight">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th>Status</th>
+        <th>Data Criação</th>
+        <th>Data Edição</th>
+        <th>Data Remoção</th>
+        <th>Data Conclusão</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of taskList">
+        <td>{{ task.titulo }}</td>
+        <td>{{ task.descricao }}</td>
+        <td>{{ task.status }}</td>
+        <td>{{ task.dataCriacao }}</td>
+      </tr>
+    </tbody>
+    </table>
+
+</section>
