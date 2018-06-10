@@ -1,18 +1,33 @@
-<section>
-<!-- <p **ngFor="let task of taskList">
-  lista-task works!
-</p> -->
-<!-- colocar o botão na direita -->
-<table class="highlight">
+<section style="margin-top: 20px">
+
+  <div class="row" style=" margin-bottom: 0px">
+    <div class="col s12">
+      <!-- Modal Trigger -->
+      <a class="waves-effect waves-light btn modal-trigger" (click)="openModal()" ><i class="material-icons left">add</i>Adicionar</a>
+
+      <!-- Modal Structure -->
+      <div id="modalAdicionar" class="modal" >
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="highlight">
     <thead>
       <tr>
         <th>Título</th>
         <th>Descrição</th>
         <th>Status</th>
         <th>Data Criação</th>
+        <th>Data Conclusão</th>
         <th>Data Edição</th>
         <th>Data Remoção</th>
-        <th>Data Conclusão</th>
+        <th class='center'>Ações</th>
       </tr>
     </thead>
     <tbody>
@@ -20,9 +35,18 @@
         <td>{{ task.titulo }}</td>
         <td>{{ task.descricao }}</td>
         <td>{{ task.status }}</td>
-        <td>{{ task.dataCriacao }}</td>
+        <td>{{ task.dataCriacao | date: 'dd/MM/yyyy HH:mm:ss ' }}</td>
+        <td>{{ task.dataConclusao | date: 'dd/MM/yyyy HH:mm:ss ' }}</td>
+        <td>{{ task.dataEdicao | date: 'dd/MM/yyyy HH:mm:ss ' }}</td>
+        <td>{{ task.dataRemocao | date: 'dd/MM/yyyy HH:mm:ss ' }}</td>
+        <td><a class="btn-floating btn-small waves-effect waves-light blue tooltipped" (click)="concluir(task)"
+               data-position="bottom" data-tooltip="Concluir"><i class="material-icons">done</i></a>
+            <a class="btn-floating btn-small waves-effect waves-light blue tooltipped" (click)="editar(task)"
+               data-position="bottom" data-tooltip="Editar"><i class="material-icons">border_color</i></a>
+            <a class="btn-floating btn-small waves-effect waves-light blue tooltipped" (click)="excluir(task)"
+               data-position="bottom" data-tooltip="Excluir"><i class="material-icons">delete</i></a></td>
       </tr>
     </tbody>
-    </table>
+  </table>
 
 </section>

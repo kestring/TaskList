@@ -20,4 +20,21 @@ export class ListaTaskComponent implements OnInit {
     this.taskService.buscarTodos().subscribe(dados => this.taskList = dados);
   }
 
+  concluir(task){
+    console.log("Teste " + task );
+    this.taskService.concluirTarefa(task);
+  }
+
+  editar(task){
+    console.log("Teste " + task );
+  }
+
+  excluir(task){
+    console.log("Teste Excluir " + task );
+    this.taskService.excluirTarefa(task);
+    console.log("Teste Buscar " + task );
+    this.buscarTodos();
+    console.log("Teste Fim " );
+  }
+
 }

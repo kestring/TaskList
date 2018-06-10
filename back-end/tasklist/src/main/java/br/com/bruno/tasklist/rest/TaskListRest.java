@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.bruno.tasklist.model.Task;
 import br.com.bruno.tasklist.repository.TaskRepository;
 
+
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/tasks")
 public class TaskListRest {
 
@@ -32,7 +34,6 @@ public class TaskListRest {
         return taskRepository.save(task);
     }
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping
     public List<Task> buscarTodasTasks() {
         return taskRepository.findAll();
@@ -69,8 +70,6 @@ public class TaskListRest {
 		
 		return ResponseEntity.ok(taskExistente);
     }
-	
-	
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Task> buscarPorId(@PathVariable Long id) {
