@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../services/task.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-lista-task',
